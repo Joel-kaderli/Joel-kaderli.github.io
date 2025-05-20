@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekt 3 – Bibliotheksverwaltung</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Projekt Bibliotheksverwaltung </h1>
+      <nav class="nav">
+        <a href="index.html">Hauptseite</a>
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="projekte.html">Projekt</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+  <section>
+    <h1>Bibliotheksverwaltung – Konsolenanwendung mit OOP</h1>
+
+    <h2>Projektziel</h2>
+    <p>Ziel dieses Projekts war die Entwicklung einer einfachen Konsolenanwendung zur Verwaltung einer kleinen Bibliothek. Benutzer sollten Bücher ausleihen, zurückgeben und das Programm beenden können. Der Fokus lag auf der praktischen Anwendung objektorientierter Programmierung in C#.</p>
+
+    <h2>Eingesetzte Technologien</h2>
+    <ul>
+      <li>Programmiersprache: C# mit objektorientierten Programmierung</li>
+      <li>Technologie: .NET-Konsole</li>
+      <li>Entwicklungsumgebung: Visual Studio</li>
+    </ul>
+
+    <h2>Umsetzung und Besonderheiten</h2>
+    <p>Die Anwendung basiert auf mehreren Klassen wie <code>Buch</code>, <code>Benutzer</code> und <code>Bibliothek</code>, die zusammen eine einfache, aber funktionale Bibliotheksverwaltung ermöglichen. Bücher können ausgeliehen und zurückgegeben werden. Die Interaktion erfolgt vollständig über die Konsole.</p>
+    <p>Der Fokus lag auf der korrekten Anwendung von OOP-Prinzipien wie Kapselung, Vererbung und Polymorphie. Dadurch wurde das Projekt übersichtlich und leicht erweiterbar gestaltet.</p>
+
+    <h2>Mein Beitrag</h2>
+    <p>Ich habe die komplette Anwendung selbst geplant und programmiert. Ziel war es, meine Kenntnisse im Bereich der objektorientierten Programmierung zu vertiefen und eine sinnvolle Konsolenanwendung zu erstellen, die reale Prozesse simuliert.</p>
+
+    <h2>Herausforderungen</h2>
+    <p>Die größte Herausforderung war die saubere Klassenstruktur sowie das fehlerfreie Zusammenspiel der Methoden beim Ausleihen und Zurückgeben von Büchern. Außerdem war es eine gute Übung, Benutzerinteraktionen sinnvoll und benutzerfreundlich über die Konsole zu gestalten.</p>
+
+    <h2>Projektlink</h2>
+    <p><a href="https://github.com/Joel-kaderli/Bibliotheksverwaltung" target="_blank">Quellcode auf GitHub ansehen</a></p>
+
+    <a href="projekte.html" class="details-button">← Zurück zu den Projekten</a>
+  </section>
+
+  <section>
+    <h2>Codebeispiel: Buch ausleihen & zurückgeben</h2>
+    <pre><code class="language-csharp">
+// Buch ausleihen
+  public void BuchAusleihen(string isbn, int mitgliedsnummer)
+  {
+      var buch = SucheBuchNachISBN(isbn);
+      if (buch != null && !buch.IstAusgeliehen)
+      {
+          buch.IstAusgeliehen = true;
+          Console.WriteLine($"Das Buch '{buch.Titel}' wurde erfolgreich ausgeliehen.");
+      }
+      else
+      {
+          Console.WriteLine("Das Buch ist nicht verfügbar.");
+      }
+  }
+
+  public void BuchZurueckgeben(string isbn)
+  {
+      var buch = SucheBuchNachISBN(isbn);
+      if (buch != null && buch.IstAusgeliehen)
+      {
+          buch.IstAusgeliehen = false;
+          Console.WriteLine($"Das Buch '{buch.Titel}' wurde erfolgreich zurückgegeben.");
+      }
+      else
+      {
+          Console.WriteLine("Das Buch wurde nicht ausgeliehen.");
+      }
+    }
+    </code></pre>
+    <p>Ich habe diesen Codeabschnitt gewählt, da er die Kernfunktionalität der Anwendung darstellt: das Ausleihen und Zurückgeben von Büchern. Er zeigt auch, wie einfach mit Listen und Methoden in OOP gearbeitet werden kann.</p>
+  </section>
+
+  <section>
+    <h2>Screenshot der Anwendung</h2>
+    <img src="Projekte/CodeSnip_Biblo.png" alt="Screenshot Bibliothek"   class="projekt-bild">
+    <img src="Projekte/Progam,cs.png" alt="Screenshot Bibliothek" class="projekt-bild">
+    <h2>Projektlink</h2>
+    <p><a href="https://github.com/Joel-kaderli/TicTacToe_Projekt" target="_blank">Quellcode auf GitHub ansehen</a></p>
+
+    <a href="projekte.html" class="details-button">← Zurück zu den Projekten</a>
+  </section>
+
+  </main>
+
+</body>
+
+</html>

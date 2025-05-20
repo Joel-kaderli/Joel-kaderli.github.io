@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekt 1 – Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Projekte Tic Tac Toe</h1>
+      <nav class="nav">
+        <a href="index.html">Hauptseite</a>
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="projekte.html">Projekt</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+  <section>
+    <h1>Tic Tac Toe – WinForms-basierte Spielanwendung</h1>
+
+    <h2>Projektziel</h2>
+    <p>Das Ziel dieses Projekts war die Entwicklung einer grafischen Umsetzung
+      des klassischen Spiels Tic Tac Toe mit Hilfe von C# und WinForms. Es sollte
+      eine einfache Benutzeroberfläche entstehen, die ein reibungsloses Zwei-Spieler-Spiel
+      auf einem Gerät ermöglicht.</p>
+
+    <h2>Eingesetzte Technologien</h2>
+    <ul>
+      <li>Programmiersprache: C#</li>
+      <li>UI-Technologie: Windows Forms (WinForms)</li>
+      <li>Entwicklungsumgebung: Visual Studio</li>
+    </ul>
+
+    <h2>Umsetzung und Besonderheiten</h2>
+    <p>Die Spiellogik wurde vollständig manuell implementiert. Das Spiel erkennt automatisch gültige Züge,
+      Siegbedingungen, Unentschieden und blockiert weitere Züge nach Spielende. Beim Gewinn erscheint ein kleines
+      Pop-up-Fenster, das den Gewinner anzeigt. Die Benutzeroberfläche wurde mithilfe von WinForms erstellt und reagiert
+      auf Spielaktionen.</p>
+    <p>Besonderes Augenmerk lag auf der klaren Trennung von Spiellogik und UI, um die Wartbarkeit und Erweiterbarkeit
+      zu gewährleisten.</p>
+
+    <h2>Mein Beitrag</h2>
+    <p>Ich habe das Projekt vollständig eigenständig umgesetzt – von der Idee über die Planung bis zur Programmierung
+      der Spielmechanik. Ziel war es, meine Kenntnisse in C# zu vertiefen. WinForms war meine erste grafische Oberfläche,
+      die ich durch Mitschüler kennengelernt hatte.</p>
+
+    <h2>Herausforderungen</h2>
+    <p>Die größte Herausforderung war die saubere Spiellogik, die alle Spielverläufe korrekt erkennt und zuverlässig auf
+      Benutzeraktionen reagiert. Es war mein erstes größeres Projekt mit einer grafischen Benutzeroberfläche.</p>
+
+    
+  </section>
+
+  <section>
+    <h2>Codebeispiel: Gewinnerermittlung & Spielauswertung</h2>
+    <pre><code class="language-csharp">
+// Prüft alle Gewinnkombinationen
+public void checkForWinner()
+{
+    for (int i = 0; i < 8; i++)
+    {
+        string combo = i switch
+        {
+            0 => spielbrett[0] + spielbrett[4] + spielbrett[8],
+            1 => spielbrett[2] + spielbrett[4] + spielbrett[6],
+            2 => spielbrett[0] + spielbrett[1] + spielbrett[2],
+            3 => spielbrett[3] + spielbrett[4] + spielbrett[5],
+            4 => spielbrett[6] + spielbrett[7] + spielbrett[8],
+            5 => spielbrett[0] + spielbrett[3] + spielbrett[6],
+            6 => spielbrett[1] + spielbrett[4] + spielbrett[7],
+            7 => spielbrett[2] + spielbrett[5] + spielbrett[8],
+            _ => ""
+        };
+
+        if (combo == "xxx")
+            MessageBox.Show("X hat das Spiel gewonnen!");
+        else if (combo == "000")
+            MessageBox.Show("0 hat das Spiel gewonnen!");
+    }
+
+    checkDraw();
+}
+
+// Prüft auf Unentschieden
+public void checkDraw()
+{
+    if (spielbrett.All(field => field != null))
+        MessageBox.Show("Unentschieden – kein Gewinner.");
+}
+    </code></pre>
+  <p>Ich habe diesen Code Teile genomen,weil er gut die Spielanalyse-Logik zeigt. Zudem find ich Ihn gut strukturiert und er zeigt auch die zentrale Spielfunktionen ab (Gewinn & Unentschieden). </p>
+ 
+  </section>
+
+
+  <section>
+    <h2>Screenshot der Anwendung</h2>
+    <img src="Projekte/TicTacToe_Anfang.png" alt="Screenshot Tic Tac Toe" class="projekt-bild">
+     <img src="Projekte/Popup.png" alt="Screenshot Tic Tac Toe" class="projekt-bild">
+    
+    <h2>Projektlink</h2>
+    <p><a href="https://github.com/Joel-kaderli/TicTacToe_Projekt" target="_blank">Quellcode auf GitHub ansehen</a></p>
+
+    <a href="projekte.html" class="details-button">← Zurück zu den Projekten</a>
+  </section>
+
+
+</main>
+
+</body>
+</html>
+

@@ -1,0 +1,371 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+
+}
+
+header {
+    background-color: #007BFF;
+    color: white;
+    
+    padding: 15px 20px;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.hamburger {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+.nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.nav a:hover {
+    color: #FFD700;
+}
+
+.intro-section {
+  display: flex;
+  align-items: center;          /* Vertikal zentrieren */
+  justify-content: center;      /* Horizontal zentrieren */
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  flex-wrap: wrap;
+  gap: 2rem;
+  height: 100vh;                /* Ganze Bildschirmhöhe */
+}
+  
+  .intro-text {
+  flex: 1;
+  min-width: 250px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  padding: 1rem;
+  text-align: center; /* Optional, wenn du mittigen Text willst */
+}
+  .intro-text:hover {
+    background-color: #e8f0f8;  
+    transition: background-color 0.3s ease;
+  }
+  
+  .intro-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Bild rechts ausrichten */
+    align-items: center;
+  }
+
+  .intro-image:hover {
+    background-color: #d3d3d3;  
+    transition: background-color 0.3s ease;
+  }
+  
+  .intro-image img {
+    width: 500px; /* Größe des Bildes (z. B. 300px breit) */
+    height: auto;
+    margin-bottom: 2rem; /* Abstand vom unteren Rand */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+
+  .hobbys-image {
+  display: flex;
+  justify-content: center;   /* Zentriert horizontal */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+
+  .hobbys-image img {
+  max-width: 300px;           /* Bildbreite begrenzen */
+  width: 100%;                /* Bild passt sich an, aber wird nie größer als 300px */
+  height: auto;               /* Proportionen beibehalten */
+  border-radius: 10px;        /* Optionale abgerundete Ecken */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optionaler Schatten für schönes Aussehen */
+  }
+
+
+
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.projects-section {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+ }
+  
+  .projects-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .project {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .project img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-text {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .project-text h3 {
+    margin-top: 0;
+  }
+  .project img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .project img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Projektbild interaktiv */
+.zoomable {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .zoomable:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Lightbox-Stil */
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+  
+  
+
+footer {
+    background-color:  #1f2937;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Effekt für den Header */
+header:hover {
+    background-color: #62abf9;  
+    transition: background-color 0.3s ease;
+}
+section:hover {
+    background-color: #c9dff6;  
+    transition: background-color 0.3s ease;
+}
+footer:hover {
+    background-color: #62abf9;  
+    transition: background-color 0.3s ease;
+}
+
+
+/* Projekt Style */
+/* style.css */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc;
+  color: #111827;
+}
+
+header {
+  background-color: #1f2937;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+}
+
+nav.nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: #93c5fd;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+
+
+section {
+  max-width: 1200px; 
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  border-left: 4px solid #3b82f6;
+  padding-left: 0.5rem;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+img.projekt-bild {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 8px;
+}
+
+pre {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+
+
+/* Kontakt unterseite */
+body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    .kontakt-container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .kontakt-container h2 {
+      text-align: center;
+      color: #2a5db0;
+      margin-bottom: 30px;
+    }
+
+    .kontakt-info {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .kontakt-info strong {
+      display: inline-block;
+      width: 100px;
+      color: #333;
+    }
+
+    .kontakt-info span {
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      .kontakt-info strong {
+        width: 80px;
+      }
+    }
+
+
+
+/*Skills Fähikeiten*/
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.skill-item {
+  text-align: center;
+}
+
+.skill-item img {
+  max-width: 60px;
+  height: auto;
+}
+
+.skill-item span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}

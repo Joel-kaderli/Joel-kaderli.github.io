@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekt 2 – Snake-Spiel</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Projekte Snake</h1>
+      <nav class="nav">
+        <a href="index.html">Hauptseite</a>
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="projekte.html">Projekt</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+  <section>
+    <h1>Snake – Klassisches Spiel mit C# und WinForms</h1>
+
+    <h2>Projektziel</h2>
+    <p>Das Ziel dieses Projekts war die Entwicklung eines klassischen Snake-Spiels mithilfe von C# und WinForms.
+      Der Spieler steuert eine Schlange, die rote Würfel frisst und dabei immer größer wird. Zudem kann die Geschwindigkeit
+      des Spiels angepasst werden.</p>
+
+    <h2>Eingesetzte Technologien</h2>
+    <ul>
+      <li>Programmiersprache: C#</li>
+      <li>UI-Technologie: Windows Forms (WinForms)</li>
+      <li>Entwicklungsumgebung: Visual Studio</li>
+    </ul>
+
+    <h2>Umsetzung und Besonderheiten</h2>
+    <p>Das Spiel beginnt mit einem einzigen Würfel (Segment), der sich mit den Pfeiltasten steuern lässt. Wenn die Schlange
+      ein Futter (roter Würfel) frisst, wächst sie. Das Spiel enthält eine Kollisionslogik mit Wand und eigenem Körper, sowie
+      eine einstellbare Geschwindigkeit. Die gesamte Logik wurde von Grund auf selbst implementiert.</p>
+
+    <p>Besonders hervorzuheben ist die einfache, aber funktionale Benutzeroberfläche mit Timer, Bewegungssteuerung und Spielende-Erkennung.</p>
+
+    <h2>Mein Beitrag</h2>
+    <p>Ich habe die Idee für das Projekt aus einem Youtube Tutorial, aber habe fast alles allein erstellt über die Spiellogik bis zur WinForms-Oberfläche.
+      Ich wollte ein Retro-Spiel entwickeln, das Spass macht und gleichzeitig meine Fähigkeiten in C# verbessert.</p>
+
+    <h2>Herausforderungen</h2>
+    <p>Die größte Herausforderung war die korrekte Steuerung der Schlange in Echtzeit und die Umsetzung der Kollisionsprüfung.
+      Auch das dynamische Wachstum der Schlange bei jedem Fressen erforderte eine clevere Datenstruktur.</p>
+
+    <h2>Projektlink</h2>
+    <p><a href="https://github.com/Joel-kaderli/Snake-Spiel" target="_blank">Quellcode auf GitHub ansehen</a></p>
+
+    <a href="projekte.html" class="details-button">← Zurück zu den Projekten</a>
+  </section>
+
+  <section>
+    <h2>Codebeispiel: Bewegung & Kollision</h2>
+    <pre><code class="language-csharp">
+// Bewegung der Schlange
+private void timer1_Tick(object sender, EventArgs e)
+{
+    Zellen[0] = Feld.GetCellPosition(Kopfpanel);
+
+    if (unten) 
+    {
+        Feld.SetCellPosition(Kopfpanel, new TableLayoutPanelCellPosition(
+            Feld.GetColumn(Kopfpanel), Feld.GetRow(Kopfpanel) + 1));
+    }
+    if (oben)
+    {
+        Feld.SetCellPosition(Kopfpanel, new TableLayoutPanelCellPosition(
+            Feld.GetColumn(Kopfpanel), Feld.GetRow(Kopfpanel) - 1));
+    }
+    if (rechts)
+    {
+        Feld.SetCellPosition(Kopfpanel, new TableLayoutPanelCellPosition(
+            Feld.GetColumn(Kopfpanel) + 1, Feld.GetRow(Kopfpanel)));
+    }
+    if (links)
+    {
+        Feld.SetCellPosition(Kopfpanel, new TableLayoutPanelCellPosition(
+            Feld.GetColumn(Kopfpanel) - 1, Feld.GetRow(Kopfpanel)));
+    }
+
+    for (int i = 1; i < Schlange.Count; i++) 
+    {
+        Zellen[i] = Feld.GetCellPosition(Schlange[i]);
+        Feld.SetCellPosition(Schlange[i], Zellen[i - 1]);
+    }
+
+    // Wenn Apfel gefressen wird
+    if (Feld.GetCellPosition(Kopfpanel).Equals(Feld.GetCellPosition(ApfelPanel)))
+    {
+        Panel PlusPanal = new Panel();
+        PlusPanal.BackColor = SystemColors.ControlText;
+        PlusPanal.Size = new Size(13, 13);
+
+        Schlange.Add(PlusPanal);
+        Zellen.Add(new TableLayoutPanelCellPosition(
+            Zellen[Zellen.Count - 1].Column, Zellen[Zellen.Count - 1].Row));
+
+        Feld.Controls.Add(PlusPanal, 
+            Zellen[Zellen.Count - 1].Column, Zellen[Zellen.Count - 1].Row);
+
+        Feld.SetCellPosition(ApfelPanel, new TableLayoutPanelCellPosition(
+            zufall.Next(0, Feld.ColumnCount), zufall.Next(0, Feld.RowCount)));
+    }
+}
+
+    </code></pre>
+    <p>Dieser Code zeigt die Hauptlogik des Spiels: die Steuerung der Schlange (über Richtung) und das Wachsen beim Einsammeln von Äpfeln. Jede Bewegung verschiebt den Kopf und die nachfolgenden Segmente, während neue Segmente bei Kollision mit dem Apfel hinzugefügt werden.</p>
+  </section>
+
+  <section>
+    <h2>Screenshot der Anwendung</h2>
+    <img src="Projekte/SnakeSpielSlow.png" alt="Screenshot Snake Spiel" class="projekt-bild">
+  <h2>Projektlink</h2>
+    <p><a href="https://github.com/Joel-kaderli/TicTacToe_Projekt" target="_blank">Quellcode auf GitHub ansehen</a></p>
+
+    <a href="projekte.html" class="details-button">← Zurück zu den Projekten</a>
+  </section>
+
+</main>
+
+</body>
+</html>
